@@ -12,7 +12,6 @@ class Solution:
                     output= output+[lis1[i]+lis2[j]]
             return output
         output=map[digits[0]]
-        print(output)
         for i in range(1,len(digits)):
             output=product(output, map[digits[i]] )
         return output

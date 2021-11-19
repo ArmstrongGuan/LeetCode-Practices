@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    # Should use heap for the easiest way. Must have a try when have time.
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         if lists==[]:
             return(ListNode().next)
@@ -19,13 +20,11 @@ class Solution:
         start=cur.index(m)
         output=ListNode()
         dummy=output
-        print(dummy)
         while m< 10**4:
             for i in range(len(lists)):
                 if lists[i] and lists[i].val==m:
                     dummy.next=ListNode(m)
                     dummy=dummy.next
-                    print(dummy)
                     lists[i]=lists[i].next
                     cur[i]= (lists[i].val if lists[i] else 10**4)
             m=min(cur)

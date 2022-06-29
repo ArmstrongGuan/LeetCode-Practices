@@ -3,12 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        #group theory :)
         n=len(nums)
         m=math.gcd(n,k)
         for i in range(m):
             cur=i
             for j in range(n//m -1):
-                nums[cur], nums[(cur-k) % n]= nums[(cur-k )% n], nums[cur]
+                temp=nums[(cur-k) % n]
+                nums[(cur-k) % n]=nums[cur]
+                nums[cur]=temp
                 cur=(cur-k) % n
                 
                 

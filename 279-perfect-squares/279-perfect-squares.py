@@ -8,7 +8,10 @@ class Solution:
             result[i**2]=1
         count =2
         while result[n]==4 and count <4:
-            for i in range(n,1,-1):
+            for j in range(1,int(sqrt(n))+1):
+                if result[n-j**2]==count-1:
+                    return count
+            for i in range(n-1,1,-1):
                 if result[i]==4:
                     for j in range(1,int(sqrt(i))+1):
                         if result[i-j**2]==count-1:

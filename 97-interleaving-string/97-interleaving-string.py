@@ -14,7 +14,7 @@ class Solution:
             else:
                 return False
         result=[[False]*(l3) for _ in range(l3)]
-        result[0][0]=True
+        result[0][0]=True #result[i][j] record if the first i-th s1 and the first j-th s2 can concategate the first i+j-th s3
         for k in range(1,l3+1):
             if k<=l2: result[0][k]= (result[0][k-1] and s2[k-1]==s3[k-1]) 
             if k<=l1: result[k][0]= (result[k-1][0] and s1[k-1]==s3[k-1])

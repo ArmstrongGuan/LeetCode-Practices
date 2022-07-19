@@ -10,7 +10,7 @@ class Solution:
                     isConnected[i][j]=0
                     queue=[[i,j]]
                     while queue:
-                        current=queue.pop(0)
+                        current=queue.pop(-1)
                         k,l=current[0], current[1]
                         for t in range(k, n):
                             if isConnected[k][t]==1:

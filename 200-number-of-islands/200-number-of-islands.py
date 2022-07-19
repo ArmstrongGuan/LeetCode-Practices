@@ -1,7 +1,7 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         #see 130, connected component
-        #method of BFS
+        #method of DFS
         count=0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
@@ -10,7 +10,7 @@ class Solution:
                     grid[i][j]="0"
                     queue=[[i,j]]
                     while queue:
-                        current=queue.pop(0)
+                        current=queue.pop()
                         k,l=current[0], current[1]
                         if k-1>=0 and grid[k-1][l]=="1":
                             grid[k-1][l]="0"

@@ -1,5 +1,6 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        #sort nums, and for each number i that is repreated for length times, add 1 to length many i's to each of the element in the current result
         nums.sort()
         result=[[]]
         cur=-11

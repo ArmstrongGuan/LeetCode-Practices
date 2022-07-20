@@ -30,5 +30,9 @@ class Solution:
                 if [i,j] not in stack and board[i][j]=="O":
                     board[i][j]="X"
         return board
+    
+    
+    #https://leetcode.com/problems/surrounded-regions/discuss/41800/Python-straight-forward-solution
+    #instead of use stack and carry it all the time, it is better to mark these places that needs a change to a third variable
                     
         

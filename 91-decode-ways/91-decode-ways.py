@@ -1,18 +1,33 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
+        
         #recursive calculation
         def decoding(s):
-            if s=='':
-                return 1
             if s[0]=='0':
                 return 0
             if len(s)==1:
                 return 1
             if len(s)==2:
                 if int(s)<=26:
-                    return 1+decoding(s[0])*decoding(s[1])
+                    return 1
                 else:
-                    return decoding(s[0])*decoding(s[1])
-            i=len(s)//2
-            return decoding(s[:i])*decoding(s[i:i+1])*decoding(s[i+1:])+decoding(s[:i-1])*int(s[i-1]!="0" and int(s[i-1:i+1]) <=26)*decoding(s[i+1:])+decoding(s[:i])*int(s[i]!="0" and int(s[i:i+2])<=26)*decoding(s[i+2:])
-        return decoding(s)
+                    return 0
+            
+        if len(s)==1:
+            return decoding(s)
+        if len(s)==2:
+            return decoding(s[0])*decoding(s[1])+decoding(s)
+        
+        result=[]
+        result.append(decoding(s[0]))
+        result.append(decoding(s[0])*decoding(s[1])+decoding(s[0:2]))
+        
+        end=2
+        
+        while end<len(s):
+            a=s[end]
+            b=s[end-1:end+1]
+            #print(end, result, a,b)
+            result.append(result[-1]*decoding(a)+result[-2]*decoding(b))
+            end+=1
+        return result[-1]

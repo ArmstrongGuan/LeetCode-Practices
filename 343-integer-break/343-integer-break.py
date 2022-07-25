@@ -12,5 +12,4 @@ class Solution:
             print(dp)
             for j in range(2, i//2+1):
                 dp[i]= max(dp[i], max(i-j, dp[i-j])*j)
-        print(dp)
         return dp[-1]

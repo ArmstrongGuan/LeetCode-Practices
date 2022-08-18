@@ -6,22 +6,14 @@ class Solution:
         for i in range(n):
             loci, locj=0,i
             while 0<=loci<m and 0<=locj<n:
-                if grid[loci][locj]==1:
-                    if locj+1<n and grid[loci][locj+1]==1:
-                        loci+=1
-                        locj+=1
-                    else:
-                        break
+                temp=locj+grid[loci][locj]
+                if 0<=temp<n and grid[loci][locj]==grid[loci][temp]:
+                    loci+=1
+                    locj=temp
                 else:
-                    if locj-1>=0 and grid[loci][locj-1]==-1:
-                        loci+=1
-                        locj-=1
-                    else:
-                        break
-            if loci==m:
-                result.append(locj)
-            else:
-                result.append(-1)
+                    loci=m
+                    locj=-1
+            result.append(locj)
         return result
                         
                 

@@ -1,5 +1,5 @@
 class MyHashMap:
-
+#this is not a good solution since use O(N) time
     def __init__(self):
         self.key=[]
         self.val=[]

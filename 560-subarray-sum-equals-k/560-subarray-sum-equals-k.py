@@ -1,5 +1,6 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
+        #harshmap[i] saves how many time the total sum from the beginning to a position is equal to i
         n=len(nums)
         total=0
         count=0

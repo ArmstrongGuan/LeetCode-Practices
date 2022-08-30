@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #the solution speed is not bad but a fake head as in the solution is pretty good
         dummy=head
         stack=[]
         cur=-101

@@ -5,29 +5,17 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        #the solution speed is not bad but a fake head as in the solution is pretty good
-        dummy=head
-        stack=[]
-        cur=-101
-        appeared=False
-        while dummy:
-            #print(stack)
-            if cur==dummy.val:
-                if appeared==False:
-                    appeared=True
-                    stack.pop()
-                    dummy=dummy.next
-                else:
-                    dummy=dummy.next
+        newhead=ListNode(-101)
+        newhead.next=head
+        cur=newhead
+        while cur.next and cur.next.next:
+            if cur.next.val==cur.next.next.val:
+                pointer=cur.next.next.next
+                value=cur.next.val
+                while pointer and pointer.val==value:
+                    pointer=pointer.next
+                cur.next=pointer
             else:
-                stack.append(dummy)
-                cur=dummy.val
-                appeared=False
-                dummy=dummy.next
-        if len(stack)==0:
-            return None
-        for i in range(len(stack)-1):
-            stack[i].next=stack[i+1]
-        stack[-1].next=None
-        head=stack[0]
-        return head
+                cur=cur.next
+        return newhead.next
+            

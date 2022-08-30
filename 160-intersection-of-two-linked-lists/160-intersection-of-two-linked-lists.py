@@ -6,6 +6,7 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        #approach 3 is awesome to check out
         harshmap={}
         curA=headA
         curB=headB

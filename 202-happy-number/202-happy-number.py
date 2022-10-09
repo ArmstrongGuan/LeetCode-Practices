@@ -5,8 +5,8 @@ class Solution:
             squaresum=0
             quotient=n
             while quotient>0:
-                quotient, reminder=quotient//10, quotient%10
-                squaresum+=reminder**2
+                quotient, remainder=quotient//10, quotient%10
+                squaresum+=remainder**2
             harshmap[n]=squaresum
             n=squaresum
         if n==1:
